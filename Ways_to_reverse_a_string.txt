@@ -1,0 +1,135 @@
+1. Decrement for-loop with concate the string
+
+function reverse(s) {
+   var R = "";
+   for (var i= s.length -1; i >= 0 ; i--) {
+      R += s[i];
+      return R;
+   }   
+}
+
+
+2. increment/decrement for-loop with two arrays
+
+function reverse(s) {
+   var R = [];
+   for (var i= s.length -1; j = 0 ; i >= 0 ; i-- ; j++) {
+      R[j] = s[i];
+      return R.join("");
+   }  
+}
+
+// here an empty array iterate over the length of the string with both incrementing/ decrementing counters.
+The array position uses the incrementing counter where as the parsed-in string uses the decrementing one.
+So the arrays created later joined to make the reverse array.
+
+
+3. incrementing for-loop with array pushing and charAt
+
+function reverse(S) {
+   var R = "";
+   for (var i= 0 ; len = s.length ; i <= len ; i++) {
+      R.push(S.charAt(len - i));
+      return R;
+   }   
+}
+
+It simply looks incrementing but it decrement the length of the string and push the char which comes from the backward
+side of the array.
+
+4. using the built-in function 
+
+   function reverse(S) {
+       return S.split('').reverse().join('');
+     }
+ Here we simply split the array into its component elements, then reverse it using the reverse() method
+ and lastly returns the array after joining. This method expolits the advantage we get from the reverse() 
+ method provided by the array prototype.
+ 
+ 
+5. Decrementing while-loop with concatenation and substring 
+ 
+    function reverse(S) {
+       var i = S.length;
+       R = "";
+       While ( i > 0) {
+           R  += S.substring( i - 1, i );
+           i--;
+        }
+        return R;
+     }
+  
+  // with similar iteration achieved on while loop, decrementing i's are retrieved by the 
+  substring() method for the reverse array.
+  
+6. single for-loop declaration with concatenation
+  
+     function reverse(S)  {
+         for ( var i = S.length - 1; R = '' ; i >= 0 ; R += S[i--] ) { }
+         return R;
+     }
+     
+  // It exploits the for-loop concatenation structure and parameters to align code in single line.
+  It decrements the i while concatenate with the new array.
+  
+7. Recursion with substring and charAt
+
+      function reverse(S) {
+         return (S === '') ? '' : reverse(S.substring(1)) + S.charAt(0);
+       }
+  
+ // here function recursively calls itself, passing in the string, excluding the first char on each iteration
+ which is instead appended to the result. Iteration through this process untill no input is present, gives the reversed string.
+ 
+ 
+ 8. Internal function recursion
+ 
+    function reverse(S) {
+      function rev( S, len, R) {
+         return ( len === 0 ) ? R : rev( S, --len, ( R += S[len]));
+      };
+      return rev(S, S.length, '');
+    }
+  
+  It uses internal function to do the recursion and then simply return the reverse string which was iterated to the sring length
+  to zero and concatenated passed. We use the internal function to do the reversal work and then passed our string to reverse that.
+  It was just like creating a class and then calling the class with new parameter.
+  
+  9.  half-index  switch for-loop  
+    
+    function reverse(S)  {
+      S - S.split('');
+      var len = S.length, halfIndex = Math.floor(len / 2) - 1, temp;
+      for (var i = 0; i <= halfIndex ; i++) {
+        temp = S[len - i -1 ];
+        S[len - i - 1 ] = S[i];
+        S[i] = temp;
+      {
+      return S.join('');
+    }
+  
+  // beneficial for large string as here we take just half of the string, which is the half-point of the string,
+  On iteration the upper half value stored and replaced by lower half value through swapping. The stored values
+  later replaced by lower half, hence we get the reverse string.
+  
+  
+  10. half-index recursion  
+  
+        function reverse(S) {
+          if (S.length < 2 ) return S;
+          var halfIndex = Math.ceil(S.length / 2);
+          return reverse(S.substr(halfIndex)) + reverse(S.ssubstr(0, halfIndex));
+        }
+   
+   Here we have used same method to half the length of string and return it through recursively
+   calling itself using the substr() method for second half and then first half, and return the reverse it.
+   
+   
+   All these ways are inspired from Priya badge. Follow her on Github.
+  
+  
+  
+  
+  
+  
+  
