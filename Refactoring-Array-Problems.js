@@ -53,6 +53,9 @@ let a = [2,1,3,2];
 let b = [1,4,9,4];
 
 compareCheck(a,b);   // will return : true
+
+// objAr1[val] = (objAr1[val] || 0) +1;  // this line means if objAr1[val] is present , add 1 to its value or if not then also initialise it with 1.
+// similar to :   objAr1[val] ? objAr1[val] += 1 : objAr1[val] = 1;
 // here we have refactored the for loop and if conditions so that we opt for the values rather than the indices of the array/object. Hence it loops 3 times but not nested any, so O(3n) = O(n).
 -------------------------------------------------------------------------------------------------------------
   
@@ -66,6 +69,45 @@ validAnagram("car", "cat")   // false
 validAnagram("awesom", "awesome")   // false
 validAnagram("twistthetongue", "tonguetwister")   // false
 
-// so we can write our code as :
+// so we can use the same mechanism :
 const validAnagram = function (str1, str2) {
-  let objStr1 = str1.split();
+  if(str1.length !== str2.length) return false;
+    let objStr1 = {};
+    let objStr2 = {};
+    for(let char of str1) {
+        objStr1[char] = ( objStr1[char] || 0) +1; 
+    }
+    for(let char of str2) {
+        objStr2[char] = ( objStr2[char] || 0) +1; 
+    }
+    for (let key in objStr1) {
+        if(!(key in objStr2)) return false;
+        if(objStr1[key] !== objStr2[key]) return false;
+    }
+    // console.log(objStr1);
+    // console.log(objStr2);
+    return true;
+}
+
+validAnagram("cinema", "iceman");   // will show : true
+
+// However we can shorten it by using just two for loops, as ..
+
+const validAnagram = function (str1, str2) {
+  if(str1.length !== str2.length) return false;
+    let objStr = {};
+    
+    for(let char of str1) {
+        objStr[char] = ( objStr[char] || 0) +1; 
+    }    
+    for (let char of str2) {   // here we just check if that char is present or not in str2, if present delete that and if not return false.
+        if(!objStr[char]) return false;
+        else objStr[char] -= 1;
+        // if(objStr[key] !== objStr2[key]) return false;
+        
+    }    
+    return true;
+}
+
+
+
