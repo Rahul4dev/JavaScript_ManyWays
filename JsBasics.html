@@ -1,0 +1,173 @@
+<!-- To find maximum from 3 input values -->
+
+<html>
+  <head>
+    <title> maximum of 3 numbers </title>
+    <script>
+      let n1, n2, n3;
+      n1 = parseInt(window.prompt("Enter n1 value"));      
+      n2 = parseInt(window.prompt("Enter n2 value"));      
+      n3 = parseInt(window.prompt("Enter n3 value"));
+      
+      if(n1 >n2 && n1 > n3) document.writeIn("maximum is" + n1);
+      else if (n2 > n1 && n2 > n3) document.writeIn("maximum is" + n2);
+      else document.writeIn("maximum is" + n3);
+      
+      </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+
+<!-- to find factorial -->
+
+<html>
+  <head>
+    <title> Factorial </title>
+    <script>
+      let n, i, fact = 1;
+      n = parseInt(window.prompt("Enter a number"));
+      if(n===0) document.writeIn("Factorial is 1");
+      else {
+        for(i=1; i <=n ; i++) {
+          fact = fact * i;
+        }
+        document.writeIn('factorail is ' + fact);
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!-- to get the square and cube of a number -->
+
+<html>
+  <head>
+    <script>
+      let a;
+      a = parseInt(window.prompt('Enter a number'));
+      document.writeIn('Square of given number is' + sqaure(a));
+      document.writeIn('Cube of given number is' + cube(a));
+      
+      function square(k) {
+        let s;
+        s = k * k;
+        return s;
+      }
+      
+      fucntion cube(m) {
+        let n;
+        n = m * m * m;
+        return n;
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+
+<!-- Validation in Js -->
+
+<html>
+  <head>
+    <title> Validation In Simple JS using .forms</title>
+    <script>
+      function validate() {
+        let email,uName, pWord, cpWord ;
+        email = document.forms('form').email.value;
+        uName = document.forms('form').uName.value;
+        pWord = document.forms('form').pWord.value;
+        cpWord = document.forms('form').cpWord.value;
+        
+        if(email === '' || cpWord === '' || pWord === '' || uName === '') alert('Enter the input fields');
+        else if(uName.length < 8) alert('Username must be atleast 8 characters long without spacing');
+        else if(pWord.length < 6) alert('Password must be strong with alphanumeric character and atleast 7 charater long without spacing');
+        else if(cpWord !== pWord) alert('Password does not match, please enter the password carefully');
+        else alert('Form successfully filled');
+      }
+    </script>
+  </head>
+  <body>
+    <form name='form'>
+      <table align='center'>
+        <tr>
+          <td> Username: </td>
+        </tr>
+        <tr>
+          <td> Password: </td>
+        </tr>
+        <tr>
+          <td> confirm Password: </td>
+        </tr>
+        <tr> 
+          <td> Email: </td>
+          <td> <input type='text' name='email'></input> </td>        
+        </tr>
+        <tr>
+          <td colspan=2 align='center'> <input type='button' onclick='validate()' name='btn' value='submit' /> </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+
+        
+<!-- Event Handling -->
+
+<html>
+  <head>
+    <title> Event Handling </title>
+    <body onload='alert("Example for JS Events")'>
+      <h1 align='center'> JS Events </h1>
+      <br/> <hr/>
+      <form name='form' onSubmit='alert("submit")'>
+<!--     onBlur Event:     -->
+         
+        <input type='text' value='Click Here' onBlur='alert("Not Clear")' />
+        
+<!--   onClick Event    -->
+        
+         <input type='text' value='Click Here' onClick='alert("Changed")' />
+        
+        <br/>
+<!--    onDoubleClick  -->
+         <input type='text' value='Click Here' onDblClick='alert("Double Clicked")' />
+        
+<!--  onMouseMove  Event   -->
+         <input type='button' value='Place Here' onMouseMove='alert("Mouse Moved to this Place")' />
+           
+<!--  onKeyUp Event   -->
+         <input type='text' value='press any key' onKeyUp='alert("KeyUp Pressed")' />
+ 
+<!--  onKeyDown Event   -->               
+         <input type='text' value='press any key' onKeyDown='alert("KeyDown Pressed")' />
+        
+<!--   OnSUbmit Event  -->
+        <input type='Submit' value='Submit'> </input>
+      
+      </form>
+    </body>
+</html>
+        
+
+
+<!-- Window Methods -->
+<html>
+  <head>
+    <title> Window Operations </title>
+  </head>
+  <body>
+    <form>
+      <input type="button" value='New Window' onClick= "window.open('login.html)", "login" , width= 250, height= 200)></input>
+                                                                                                                     
+      <input type='button' value='close' onClick='window.close()'> </input>
+  </form>
+</body>
+</html>
+
+        
+
+      
