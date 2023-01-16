@@ -1,3 +1,22 @@
+let Array = [4,5,6,7];
+
+Array.at(1) // 5
+Array.push(8)   // [4,5,6,7,8]
+Array.pop()  // [4,5,6]
+Array.fill(1)  // [1,1,1,1]
+Array.join('')   // '4 5 6 7' (string)
+Array.shift()   // [5,6,7]
+Array.reverse()  // [7,6,5,4]
+Array.unshift(3)   // [3,4,5,6,7]
+Array.includes(6)   // true
+Array.map(item => 2*item)   // [8,10,12,14]
+Array.filter(item => item > 5)  // [6,7]
+Array.find(item  => item > 5 )  // 6 (first match)
+Array.every(item  => item > 0)  // true
+Array.findIndex(item  => item === 5)  // 1
+Array.reduce((prev, curr)  =>  prev + curr, 0)  // 22
+
+// Also: 
 Array.push();   // mutable   increase
 
 // it adds the element/value given as param to the end of the array, i.e, last element, hence its BigO for insertion is just O(1), as not other element involve in the creation of that last element's index.
